@@ -1,61 +1,272 @@
 .leaflet-control-layers-toggle.leaflet-layerstree-named-toggle {
-    margin: 2px 5px;
-    width: auto;
-    height: auto;
-    background-image: none;
+  margin: 2px 5px;
+  width: auto;
+  height: auto;
+  background-image: none;
 }
 
 .leaflet-layerstree-node {
 }
 
-.leaflet-layerstree-header input{
-    margin-left: 0px;
+.leaflet-control-layers-separator {
+  height: 0;
+  border-top: 1px solid #ddd;
+  margin: 5px 0px 5px 0px;
 }
 
+.leaflet-layerstree-header input {
+  margin: 0px 5px;
+}
+
+.leaflet-control-layers-group-selectzor {
+}
 
 .leaflet-layerstree-header {
 }
 
 .leaflet-layerstree-header-pointer {
-    cursor: pointer;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.leaflet-layerstree-children:not(.leaflet-layerstree-children-nopad)
+  .leaflet-layerstree-node
+  .checkbox-wrapper {
 }
 
 .leaflet-layerstree-header label {
-    display: inline-block;
-    cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 2px;
 }
 
 .leaflet-layerstree-header-label {
 }
+.leaflet-control-layers-overlays .leaflet-layerstree-header-name {
+  padding-left: 0px;
+}
 
 .leaflet-layerstree-header-name {
+  font-weight: 600;
+
+  line-height: 24px;
 }
 
 .leaflet-layerstree-header-space {
 }
 
 .leaflet-layerstree-children {
-    padding-left: 10px;
+  padding-left: 27px;
 }
 
 .leaflet-layerstree-children-nopad {
-    padding-left: 0px;
+  padding-left: 0px;
 }
-
 .leaflet-layerstree-closed {
+  background: url(sprite.png) 0px -31px no-repeat;
 }
-
 .leaflet-layerstree-opened {
+  background: url(sprite.png) -2px 2px no-repeat;
+}
+.leaflet-layerstree-closed,
+.leaflet-layerstree-opened {
+  float: right;
+  /*border: 1px solid #81b32e;*/
+  padding: 0px 3px;
+  height: 16px;
+  border-radius: 2px;
+  line-height: 14px;
+  margin-top: 3px;
+  color: transparent;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+.leaflet-layerstree-closed,
+.leaflet-layerstree-opened {
+  filter: grayscale(1);
 }
 
 .leaflet-layerstree-hide {
-    display: none;
+  display: none;
 }
 
 .leaflet-layerstree-nevershow {
-    display: none;
+  display: none;
 }
 
 .leaflet-layerstree-expand-collapse {
+  cursor: pointer;
+}
+
+.leaflet-control-layers.leaflet-control {
+  border-radius: 2px;
+  padding: 10px;
+  border: 0px solid rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-control-layers.leaflet-control .leaflet-layerstree-node {
+  font-size: 14px;
+}
+
+/*
+.checkbox-wrapper input[type="checkbox"] {
+	display:none;
+ }
+.checkbox-wrapper label {
+    background: url(sprite.png) 0px -160px no-repeat;
     cursor: pointer;
+
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+ }
+
+.checkbox-wrapper label.checked {
+	background: url(sprite.png) 0px -112px no-repeat;
+	cursor:pointer;
+
+}
+*/
+
+@keyframes hover-color {
+  from {
+    border-color: #c0c0c0;
+  }
+  to {
+    border-color: #3e97eb;
+  }
+}
+
+.magic-radio,
+.magic-checkbox {
+  position: absolute;
+  display: none;
+}
+
+.magic-radio[disabled],
+.magic-checkbox[disabled] {
+  cursor: not-allowed;
+}
+
+.magic-radio + label,
+.magic-checkbox + label {
+  position: relative;
+  display: grid;
+  padding-left: 30px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.magic-radio + label:hover:before,
+.magic-checkbox + label:hover:before {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-name: hover-color;
+}
+.magic-radio + label:before,
+.magic-checkbox + label:before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  content: "";
+  border: 1px solid #c0c0c0;
+}
+.magic-radio + label:after,
+.magic-checkbox + label:after {
+  position: absolute;
+  display: none;
+  content: "";
+}
+
+.magic-radio[disabled] + label,
+.magic-checkbox[disabled] + label {
+  cursor: not-allowed;
+  color: #e4e4e4;
+}
+.magic-radio[disabled] + label:hover,
+.magic-radio[disabled] + label:before,
+.magic-radio[disabled] + label:after,
+.magic-checkbox[disabled] + label:hover,
+.magic-checkbox[disabled] + label:before,
+.magic-checkbox[disabled] + label:after {
+  cursor: not-allowed;
+}
+.magic-radio[disabled] + label:hover:before,
+.magic-checkbox[disabled] + label:hover:before {
+  border: 1px solid #e4e4e4;
+  animation-name: none;
+}
+.magic-radio[disabled] + label:before,
+.magic-checkbox[disabled] + label:before {
+  border-color: #e4e4e4;
+}
+
+.magic-radio:checked + label:before,
+.magic-checkbox:checked + label:before {
+  animation-name: none;
+}
+
+.magic-radio:checked + label:after,
+.magic-checkbox:checked + label:after {
+  display: block;
+}
+
+.magic-radio + label:before {
+  border-radius: 50%;
+}
+
+.magic-radio + label:after {
+  top: 8px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1e90ff;
+}
+
+.magic-radio:checked + label:before {
+  border: 1px solid #1e90ff;
+}
+
+.magic-radio:checked[disabled] + label:before {
+  border: 1px solid #c9e2f9;
+}
+
+.magic-radio:checked[disabled] + label:after {
+  background: #c9e2f9;
+}
+
+.magic-checkbox + label:before {
+  border-radius: 2px;
+}
+
+.magic-checkbox + label:after {
+  top: 5px;
+  left: 6px;
+  box-sizing: border-box;
+  width: 6px;
+  height: 12px;
+  transform: rotate(45deg);
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff;
+  border-top: 0;
+  border-left: 0;
+}
+
+.magic-checkbox:checked + label:before {
+  border: #1e90ff;
+  background: #1e90ff;
+}
+
+.magic-checkbox:checked[disabled] + label:before {
+  border: #c9e2f9;
+  background: #c9e2f9;
+}
+
+.leaflet-layerstree-header-name .fa-download {
 }
